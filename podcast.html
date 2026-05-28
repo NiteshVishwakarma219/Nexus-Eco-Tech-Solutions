@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Professional Journey Podcast</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+/* ADD THIS CSS */
+
+.host-info{
+    margin-top:35px;
+    padding:25px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    animation:fadeUp 1.5s ease;
+}
+
+.host-info h3{
+    color:#00d4ff;
+    font-size:18px;
+    margin-bottom:10px;
+    letter-spacing:1px;
+}
+
+.host-info h2{
+    font-size:38px;
+    font-weight:700;
+    background:linear-gradient(to right,#ff7b00,#ff00cc,#00d4ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:10px;
+}
+
+.host-info p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:15px;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+    body{
+      background:#020617;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    .container{
+      width:95%;
+      max-width:1400px;
+      margin:auto;
+      padding:30px 0;
+    }
+
+    /* Animated Background */
+
+    body::before{
+      content:'';
+      position:fixed;
+      width:700px;
+      height:700px;
+      background:radial-gradient(circle,#7c3aed55,#2563eb00);
+      top:-200px;
+      left:-200px;
+      animation:moveGlow 8s infinite alternate;
+      z-index:-1;
+    }
+
+    body::after{
+      content:'';
+      position:fixed;
+      width:600px;
+      height:600px;
+      background:radial-gradient(circle,#ec489955,#2563eb00);
+      bottom:-150px;
+      right:-150px;
+      animation:moveGlow2 10s infinite alternate;
+      z-index:-1;
+    }
+
+    @keyframes moveGlow{
+      from{
+        transform:translate(0,0);
+      }
+      to{
+        transform:translate(100px,50px);
+      }
+    }
+
+    @keyframes moveGlow2{
+      from{
+        transform:translate(0,0);
+      }
+      to{
+        transform:translate(-100px,-50px);
+      }
+    }
+
+    /* HERO */
+
+    .hero{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:40px;
+      padding:50px;
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:30px;
+      background:rgba(10,15,40,0.7);
+      backdrop-filter:blur(10px);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:300px;
+      height:300px;
+      border-radius:50%;
+      background:linear-gradient(45deg,#ff00cc,#3333ff);
+      right:-100px;
+      top:-100px;
+      opacity:.3;
+      filter:blur(60px);
+    }
+
+    .hero-left{
+      flex:1;
+      animation:slideLeft 1s ease;
+    }
+
+    .hero-right{
+      flex:1;
+      text-align:center;
+      position:relative;
+      animation:slideRight 1s ease;
+    }
+
+    @keyframes slideLeft{
+      from{
+        opacity:0;
+        transform:translateX(-80px);
+      }
+      to{
+        opacity:1;
+        transform:translateX(0);
+      }
+    }
+
+    @keyframes slideRight{
+      from{
+        opacity:0;
+        transform:translateX(80px);
+      }
+      to{
+        opacity:1;
+        transform:translateX(0);
+      }
+    }
+
+    .podcast-icon{
+      width:110px;
+      height:110px;
+      border-radius:50%;
+      border:3px solid #8b5cf6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:50px;
+      margin-bottom:20px;
+      box-shadow:0 0 30px #8b5cf6;
+      animation:pulse 2s infinite;
+    }
+
+    @keyframes pulse{
+      0%{
+        box-shadow:0 0 20px #8b5cf6;
+      }
+      50%{
+        box-shadow:0 0 40px #ec4899;
+      }
+      100%{
+        box-shadow:0 0 20px #8b5cf6;
+      }
+    }
+
+    .hero h1{
+      font-size:80px;
+      line-height:1;
+      font-weight:800;
+      margin-bottom:20px;
+    }
+
+    .gradient{
+      background:linear-gradient(to right,#ff7b00,#ff00cc,#00d4ff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      color:#cbd5e1;
+      font-size:18px;
+      line-height:1.8;
+      margin-bottom:25px;
+    }
+
+    .tagline{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+      margin-top:20px;
+    }
+
+    .tag{
+      padding:10px 20px;
+      border-radius:30px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.1);
+      transition:.4s;
+    }
+
+    .tag:hover{
+      transform:translateY(-5px);
+      background:#8b5cf6;
+    }
+
+ .host-img{
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid rgba(255,255,255,0.15);
+    position:relative;
+    z-index:2;
+    animation:float 4s ease-in-out infinite;
+    box-shadow:
+      0 0 30px rgba(0,212,255,0.5),
+      0 0 60px rgba(139,92,246,0.4);
+}
+
+    @keyframes float{
+      0%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-15px);
+      }
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+ .circle{
+    position:absolute;
+    width:430px;
+    height:430px;
+    border:2px solid rgba(0,212,255,0.25);
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    animation:rotate 20s linear infinite;
+}
+
+.circle::before{
+    content:'';
+    position:absolute;
+    inset:15px;
+    border-radius:50%;
+    border:2px dashed rgba(236,72,153,0.35);
+}
+
+.circle::after{
+    content:'';
+    position:absolute;
+    inset:35px;
+    border-radius:50%;
+    border:2px solid rgba(139,92,246,0.25);
+}
+
+    @keyframes rotate{
+      from{
+        transform:translate(-50%,-50%) rotate(0deg);
+      }
+      to{
+        transform:translate(-50%,-50%) rotate(360deg);
+      }
+    }
+
+    /* SECTION TITLE */
+
+    .section-title{
+      text-align:center;
+      margin:70px 0 40px;
+      font-size:45px;
+      font-weight:700;
+      position:relative;
+    }
+
+    .section-title::after{
+      content:'';
+      width:150px;
+      height:4px;
+      background:linear-gradient(to right,#ff00cc,#00d4ff);
+      position:absolute;
+      bottom:-10px;
+      left:50%;
+      transform:translateX(-50%);
+      border-radius:10px;
+    }
+
+    /* EPISODES */
+
+    .episodes{
+      display:flex;
+      flex-direction:column;
+      gap:30px;
+    }
+
+    .episode-card{
+      display:flex;
+      gap:30px;
+      padding:25px;
+      border-radius:25px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      transition:.5s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .episode-card:hover{
+      transform:translateY(-10px) scale(1.01);
+      box-shadow:0 15px 40px rgba(139,92,246,0.3);
+    }
+
+    .episode-card img{
+      width:260px;
+      border-radius:20px;
+      object-fit:cover;
+    }
+
+    .episode-content{
+      flex:1;
+    }
+
+    .episode-content h2{
+      font-size:36px;
+      margin-bottom:10px;
+    }
+
+    .episode-content p{
+      color:#cbd5e1;
+      line-height:1.8;
+      margin-bottom:15px;
+    }
+
+    .episode-content ul{
+      margin-left:20px;
+      color:#e2e8f0;
+      line-height:2;
+    }
+
+    .listen-btn{
+      display:inline-block;
+      margin-top:20px;
+      padding:14px 35px;
+      border-radius:40px;
+      background:linear-gradient(to right,#7c3aed,#ec4899);
+      color:white;
+      text-decoration:none;
+      font-weight:600;
+      transition:.4s;
+    }
+
+    .listen-btn:hover{
+      transform:scale(1.08);
+      box-shadow:0 10px 25px rgba(236,72,153,.5);
+    }
+
+    /* FEATURES */
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      margin-top:70px;
+    }
+
+    .feature-box{
+      padding:30px;
+      border-radius:25px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      transition:.5s;
+      text-align:center;
+    }
+
+    .feature-box:hover{
+      transform:translateY(-10px);
+      background:linear-gradient(145deg,#111827,#1e1b4b);
+    }
+
+    .feature-box h3{
+      margin:20px 0;
+      font-size:24px;
+    }
+
+    .feature-box p{
+      color:#cbd5e1;
+      line-height:1.8;
+    }
+
+    .feature-icon{
+      font-size:50px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      margin-top:80px;
+      padding:40px;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    footer h2{
+      font-size:35px;
+      margin-bottom:15px;
+    }
+
+    footer p{
+      color:#94a3b8;
+      margin-bottom:25px;
+    }
+
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .socials a{
+      text-decoration:none;
+      color:white;
+      padding:12px 25px;
+      border-radius:30px;
+      background:rgba(255,255,255,0.08);
+      transition:.4s;
+    }
+
+    .socials a:hover{
+      background:#8b5cf6;
+      transform:translateY(-5px);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1000px){
+
+      .hero{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .hero h1{
+        font-size:55px;
+      }
+
+      .episode-card{
+        flex-direction:column;
+      }
+
+      .episode-card img{
+        width:100%;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .hero{
+        padding:25px;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .section-title{
+        font-size:32px;
+      }
+
+      .episode-content h2{
+        font-size:28px;
+      }
+
+      .host-img{
+        width:100%;
+      }
+
+    }
+    .small-circle{
+    width:500px;
+    height:500px;
+    border-color:rgba(255,0,200,0.18);
+    animation-direction:reverse;
+    animation-duration:25s;
+}
+.header{
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.92);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+}
+
+/* ================= LOGO ================= */
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-icon{
+    width: 42px;
+    height: 42px;
+    background: #3b82f6;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.logo h2{
+    font-size: 1.8rem;
+    color: #111827;
+    font-weight: 700;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: #111827;
+    font-weight: 500;
+    transition: 0.3s;
+    position: relative;
+}
+
+.navbar a:hover{
+    color: #2563eb;
+}
+
+.navbar .active{
+    color: #2563eb;
+    background: #eff6ff;
+    padding: 12px 18px;
+    border-radius: 12px;
+}
+
+/* ================= BUTTON ================= */
+
+.header-btn{
+    padding: 14px 28px;
+    background: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.4s;
+}
+
+.header-btn:hover{
+    background: #2563eb;
+    transform: translateY(-3px);
+}
+
+  </style>
+</head>
+<body>
+ <header class="header">
+
+    <div class="logo">
+
+        <div class="logo-icon">N</div>
+        <h2>NexusEchoTech</h2>
+
+    </div>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar" id="navbar">
+
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+
+    </nav>
+
+    <!-- BUTTON -->
+
+    <a href="contact.html" class="header-btn">Get started</a>
+
+    <!-- MOBILE MENU BUTTON -->
+
+    <div class="menu-btn" id="menuBtn">
+
+        <i class="ri-menu-line"></i>
+
+    </div>
+
+</header>
+<br>
+  <div class="container">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="hero-left">
+
+        <div class="podcast-icon">
+          🎙
+        </div>
+
+        <h1>
+          THE <br>
+          <span class="gradient">PROFESSIONAL JOURNEY</span>
+        </h1>
+        
+<!-- ADD THIS INSIDE HERO LEFT SECTION -->
+<!-- Place below the paragraph -->
+
+<div class="host-info">
+    <h3>🎧 Hosted By</h3>
+    <h2>Nitesh Tiwari</h2>
+    <p>
+        Finance enthusiast, technology learner, and strategy-driven creator
+        helping students and professionals bridge the gap between academics
+        and the real corporate world.
+    </p>
+</div>
+<br>
+        <p>
+          Finance. Strategy. Technology. Leadership. Innovation.
+          Deep conversations and powerful insights that help students,
+          entrepreneurs, and professionals grow in their careers.
+        </p>
+
+        <div class="tagline">
+          <div class="tag">Business Strategy</div>
+          <div class="tag">FinTech</div>
+          <div class="tag">Corporate Growth</div>
+          <div class="tag">Career Success</div>
+        </div>
+
+      </div>
+
+      <div class="hero-right">
+
+        <div class="circle"></div>
+<div class="circle small-circle"></div>
+        <img src="tiwari.jpeg" alt="Host Image" class="host-img">
+
+      </div>
+
+    </section>
+
+    <!-- EPISODES -->
+
+    <h2 class="section-title">Latest Episodes</h2>
+
+    <section class="episodes">
+
+      <!-- CARD 1 -->
+
+      <div class="episode-card">
+
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop" alt="">
+
+        <div class="episode-content">
+
+          <h2>From Campus to Corporate</h2>
+
+          <p>
+            Learn the transition from college life to real-world business environments,
+            corporate culture, finance strategy, communication, and leadership growth.
+          </p>
+
+          <ul>
+            <li>Building confidence in corporate meetings</li>
+            <li>Improving communication & networking skills</li>
+            <li>Understanding workplace professionalism</li>
+            <li>How to grow faster in your first job</li>
+          </ul>
+
+
+        </div>
+
+      </div>
+
+      <!-- CARD 2 -->
+
+      <div class="episode-card">
+
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop" alt="">
+
+        <div class="episode-content">
+
+          <h2>The Macro Lens – Economy & Finance</h2>
+
+          <p>
+            Understand inflation, RBI policy, government budgeting,
+            startup investments, and how global economic changes impact business.
+          </p>
+
+          <ul>
+            <li>Understanding borrowing costs & interest rates</li>
+            <li>Business finance planning strategies</li>
+            <li>Smart investing mindset for students</li>
+            <li>Financial awareness for future entrepreneurs</li>
+          </ul>
+
+
+        </div>
+
+      </div>
+
+      <!-- CARD 3 -->
+
+      <div class="episode-card">
+
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="">
+
+        <div class="episode-content">
+
+          <h2>Digital India & FinTech Revolution</h2>
+
+          <p>
+            Explore how UPI, AI, automation, cloud computing,
+            and digital transformation are changing the future of India.
+          </p>
+
+          <ul>
+            <li>UPI growth & digital payment systems</li>
+            <li>Future of AI in finance & banking</li>
+            <li>Cybersecurity awareness in digital finance</li>
+            <li>Technology opportunities for students</li>
+          </ul>
+
+        
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <h2 class="section-title">Why Listen?</h2>
+
+    <section class="features">
+
+      <div class="feature-box">
+        <div class="feature-icon">📈</div>
+        <h3>Career Growth</h3>
+        <p>
+          Gain practical corporate knowledge and strategies to accelerate your professional journey.
+        </p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">💡</div>
+        <h3>Industry Insights</h3>
+        <p>
+          Understand modern finance, startups, AI trends, and business innovations.
+        </p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">🎯</div>
+        <h3>Actionable Advice</h3>
+        <p>
+          Real-world lessons and frameworks you can directly apply in career and business.
+        </p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">🚀</div>
+        <h3>Motivation</h3>
+        <p>
+          Inspiring conversations designed to help students and professionals think bigger.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+      <h2 class="gradient">New Episodes Every Week</h2>
+
+      <p>
+        Subscribe now and join thousands of listeners building stronger careers,
+        smarter businesses, and future-ready skills.
+      </p>
+
+      <div class="socials">
+        <a href="#">Spotify</a>
+        <a href="#">Apple Podcasts</a>
+        <a href="#">YouTube</a>
+        <a href="#">Google Podcasts</a>
+      </div>
+
+    </footer>
+
+  </div>
+
+</body>
+</html>

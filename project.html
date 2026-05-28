@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Project Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="projectDetails"></div>
+
+<script src="script.js"></script>
+
+<script>
+const API = "http://localhost:5000";
+
+async function loadProject(){
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    const res = await fetch(`${API}/projects`);
+    const data = await res.json();
+
+    const project = data.find(p => p._id === id);
+
+    const container = document.getElementById("projectDetails");
+
+    container.innerHTML = `
+        <div style="padding:100px 8%;">
+            <h1>${project.title}</h1>
+            <img src="${project.image}" style="width:100%;margin-top:20px;border-radius:12px;">
+            <p style="margin-top:20px;font-size:18px;color:#64748b;">
+                ${project.description}
+            </p>
+        </div>
+    `;
+}
+
+loadProject();
+</script>
+
+</body>
+</html>

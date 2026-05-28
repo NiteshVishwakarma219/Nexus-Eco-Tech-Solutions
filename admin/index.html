@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Nexova Admin Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar">
+
+    <!-- LOGO -->
+
+    <div class="logo">
+
+        <div class="logo-icon">N</div>
+
+        <h2>Nexova</h2>
+
+    </div>
+
+    <!-- MENU -->
+
+    <ul>
+
+        <li class="menu-item active"
+        onclick="showSection('dashboard',this)">
+
+            <i class="ri-dashboard-line"></i>
+
+            Dashboard
+
+        </li>
+
+        <li class="menu-item"
+        onclick="showSection('messages',this)">
+
+            <i class="ri-mail-line"></i>
+
+            Messages
+
+        </li>
+
+        <li class="menu-item"
+        onclick="showSection('subscribers',this)">
+
+            <i class="ri-user-line"></i>
+
+            Subscribers
+
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- ================= MAIN ================= -->
+
+<div class="main">
+
+    <!-- ================= TOPBAR ================= -->
+
+    <div class="topbar">
+
+        <h1>Admin Dashboard</h1>
+
+        <button onclick="logout()" class="logout-btn">
+
+            Logout
+
+        </button>
+
+    </div>
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section id="dashboardSection">
+
+        <!-- CARDS -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon blue">
+
+                    <i class="ri-mail-line"></i>
+
+                </div>
+
+                <h3>Total Messages</h3>
+
+                <h2 id="messageCount">0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-icon green">
+
+                    <i class="ri-user-line"></i>
+
+                </div>
+
+                <h3>Total Subscribers</h3>
+
+                <h2 id="subscriberCount">0</h2>
+
+            </div>
+
+        </div>
+
+        <!-- ================= ANALYTICS ================= -->
+
+        <div class="analytics-grid">
+
+            <!-- CONTACT CHART -->
+
+            <div class="chart-box">
+
+                <h2>Monthly Contacts</h2>
+
+                <canvas id="contactChart"></canvas>
+
+            </div>
+
+            <!-- SUBSCRIBER CHART -->
+
+            <div class="chart-box">
+
+                <h2>Subscriber Growth</h2>
+
+                <canvas id="subscriberChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </section>
+<!-- ================= PROJECT CMS ================= -->
+
+<div class="table-box">
+
+    <h2>Manage Projects</h2>
+
+    <!-- FORM -->
+
+    <form id="projectForm" class="project-form">
+
+        <input
+        type="text"
+        placeholder="Project Title"
+        required>
+
+        <textarea
+        placeholder="Project Description"
+        required></textarea>
+
+        <input
+        type="text"
+        placeholder="Image URL"
+        required>
+
+        <button type="submit">
+            Add Project
+        </button>
+
+    </form>
+
+    <!-- TABLE -->
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Image</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="projectTable"></tbody>
+
+    </table>
+
+</div>
+    <!-- ================= MESSAGES ================= -->
+
+    <section id="messagesSection"
+    style="display:none;">
+
+        <div class="table-box">
+
+            <h2>Contact Messages</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+
+                        <th>Email</th>
+
+                        <th>Service</th>
+
+                        <th>Message</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="contactTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- ================= SUBSCRIBERS ================= -->
+
+    <section id="subscribersSection"
+    style="display:none;">
+
+        <div class="table-box">
+
+            <h2>Newsletter Subscribers</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Email</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="subscriberTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- ================= CHART JS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- ================= SCRIPT ================= -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
